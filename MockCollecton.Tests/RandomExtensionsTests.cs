@@ -13,11 +13,21 @@ namespace MockCollection.Tests
     {
         [TestMethod()]
         [TestCategory("RandomPrimitive")]
-        public void GetRandomValueTest()
+        public void GetRandomValueTest_String()
         {
-            var str = string.Empty;
-            str = str.GetRandomValue();
-            Assert.IsFalse(string.IsNullOrEmpty(str));
+            var value = string.Empty;
+            value = value.GetRandomValue();
+            Assert.IsFalse(string.IsNullOrEmpty(value));
+        }
+
+
+        [TestMethod()]
+        [TestCategory("RandomPrimitive")]
+        public void GetRandomValueTest_Int32()
+        {
+            var value = 0;
+            value = value.GetRandomValue();
+            Assert.AreNotEqual(0,value);
         }
     }
 }
