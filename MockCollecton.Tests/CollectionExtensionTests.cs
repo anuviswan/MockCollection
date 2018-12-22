@@ -22,6 +22,7 @@ namespace MockCollecton.Tests
             foreach (var item in instance)
             {
                 Assert.IsNotNull(item.Property1);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(item.Property1));
             }
         }
     }

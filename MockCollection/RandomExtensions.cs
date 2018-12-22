@@ -9,21 +9,15 @@ namespace MockCollection
     public static class RandomExtensions
     {
         private static Random random = new Random();
-
-        public static dynamic GetRandomValue<TSource>(this TSource source)
+        public static dynamic GetRandomValues(this Type source)
         {
-            switch (source)
+            IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
             {
-                case string s:
-                    return RandomString();
-                case int i32:
-                    return RandomInt32();
-                default:
-                    break;
-            }
-            return default;
+                [typeof(string)] = ()=> RandomString(),
+                [typeof(int)] = () => RandomInt32(),
+            };
+            return _actionDictionary[source].Invoke();
         }
-
         private static int RandomInt32(int minValue = 0,int maxValue= Int32.MaxValue)
         {
             return random.Next(minValue, maxValue);
@@ -36,3 +30,4 @@ namespace MockCollection
         }
     }
 }
+
