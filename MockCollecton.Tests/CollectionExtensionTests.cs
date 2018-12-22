@@ -22,6 +22,8 @@ namespace MockCollecton.Tests
             public ulong ULongProperty { get; set; }
             public float FloatProperty { get; set; }
             public double DoubleProperty { get; set; }
+            public char CharProperty { get; set; }
+            public decimal DecimalProperty { get; set; }
         }
         [TestMethod]
         public void CreateCollection_NonNested_GenerateCollectionWithCountAsSpecified()
@@ -46,6 +48,8 @@ namespace MockCollecton.Tests
                 Assert.AreNotEqual(instance1[i].ULongProperty, instance2[2].ULongProperty);
                 Assert.AreNotEqual(instance1[i].FloatProperty, instance2[2].FloatProperty);
                 Assert.AreNotEqual(instance1[i].DoubleProperty, instance2[2].DoubleProperty);
+                Assert.AreNotEqual(instance1[i].CharProperty, instance2[2].CharProperty);
+                Assert.AreNotEqual(instance1[i].DecimalProperty, instance2[2].DecimalProperty);
             }
             foreach (var item in instance1)
             {
