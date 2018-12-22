@@ -10,8 +10,16 @@ namespace MockCollecton.Tests
     {
         private class TypeWithNoNestedType
         {
-            public string Property1 { get; set; }
-            public int Property2 { get; set; }
+            public string StringProperty { get; set; }
+            public int Int32Property { get; set; }
+            public bool BoolProperty { get; set; }
+            public sbyte SByteProperty { get; set; }
+            public short ShortProperty { get; set; }
+            public long LongProperty { get; set; }
+            public byte ByteProperty { get; set; }
+            public ushort UShortProperty { get; set; }
+            public uint UInt32Property { get; set; }
+            public ulong ULongProperty { get; set; }
         }
         [TestMethod]
         public void CreateCollection_NonNested_GenerateCollectionWithCountAsSpecified()
@@ -21,11 +29,12 @@ namespace MockCollecton.Tests
             Assert.AreEqual(expectedCount, instance.Count);
             foreach (var item in instance)
             {
-                Assert.IsNotNull(item.Property1);
-                Assert.IsFalse(string.IsNullOrWhiteSpace(item.Property1));
-                Assert.AreNotEqual(0,item.Property2);
+                Assert.IsNotNull(item.StringProperty);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(item.StringProperty));
+                Assert.AreNotEqual(0,item.Int32Property);
             }
         }
     }
 }
+
 
