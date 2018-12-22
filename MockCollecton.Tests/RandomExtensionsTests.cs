@@ -16,7 +16,7 @@ namespace MockCollection.Tests
         public void GetRandomValueTest_String()
         {
             var value = string.Empty;
-            value = value.GetRandomValue();
+            value = value.GetType().GetRandomValues();
             Assert.IsFalse(string.IsNullOrEmpty(value));
         }
 
@@ -26,7 +26,7 @@ namespace MockCollection.Tests
         public void GetRandomValueTest_Int32()
         {
             var value = 0;
-            value = value.GetRandomValue();
+            value = value.GetType().GetRandomValues();
             Assert.AreNotEqual(0,value);
         }
     }
