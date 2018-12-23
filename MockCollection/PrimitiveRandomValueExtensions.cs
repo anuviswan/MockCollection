@@ -17,7 +17,13 @@ namespace MockCollection
             return random.NextDouble() * (double)random.Next(minValue,maxValue);
         }
 
-
+        private static char RandomChar(bool isLowerCase = true)
+        {
+            if (isLowerCase)
+                return  (char)random.Next((int)'a', (int)'z');
+             else
+                return (char)random.Next((int)'A', (int)'A');
+        }
         private static byte RandomByte()
         {
             var byteArray = new byte[1];

@@ -20,7 +20,8 @@ namespace MockCollection
                 [typeof(short)] = () => RandomInt16(),
                 [typeof(bool)] = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(),
-                [typeof(byte)] = () => RandomByte()
+                [typeof(byte)] = () => RandomByte(),
+                [typeof(char)] = () => RandomChar(),
             };
             
             return _actionDictionary.ContainsKey(source)? _actionDictionary[source]?.Invoke():GetDefault(source);
