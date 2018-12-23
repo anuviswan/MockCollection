@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MockCollection
 {
-    public static class RandomExtensions
+    public static partial class RandomExtensions
     {
         private static Random random = new Random();
         public static dynamic GetRandomValues(this Type source)
@@ -16,22 +16,18 @@ namespace MockCollection
             {
                 [typeof(string)] = ()=> RandomString(),
                 [typeof(int)] = () => RandomInt32(),
+                [typeof(long)] = () => RandomInt64(),
+                [typeof(short)] = () => RandomInt16(),
+                [typeof(bool)] = () => RandomBoolean(),
+                [typeof(double)] = () => RandomDouble(),
+                [typeof(byte)] = () => RandomByte()
             };
             
             return _actionDictionary.ContainsKey(source)? _actionDictionary[source]?.Invoke():GetDefault(source);
         }
-        private static int RandomInt32(int minValue = 0,int maxValue= Int32.MaxValue)
-        {
-            return random.Next(minValue, maxValue);
-        }
-        private static string RandomString(int length=10)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
 
-        public static object GetDefault(Type type)
+
+        private static object GetDefault(Type type)
         {
             // If no Type was supplied, if the Type was a reference type, or if the Type was a System.Void, return null
             if (type == typeof(string))

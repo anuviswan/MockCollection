@@ -29,5 +29,15 @@ namespace MockCollection.Tests
             value = value.GetType().GetRandomValues();
             Assert.AreNotEqual(0,value);
         }
+
+
+        [TestMethod()]
+        [TestCategory("RandomPrimitive")]
+        public void GetRandomValueTest_Int64()
+        {
+            var value = 0;
+            value = value.GetType().GetRandomValues();
+            Assert.AreNotEqual(0, value);
+        }
     }
 }
