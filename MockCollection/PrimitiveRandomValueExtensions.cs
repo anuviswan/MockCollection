@@ -10,7 +10,7 @@ namespace MockCollection
     {
         private static bool RandomBoolean()
         {
-            return Convert.ToBoolean(random.Next(0, 1));
+            return Convert.ToBoolean(random.Next(0, 2)); // Max value is exclusive
         }
         private static double RandomDouble(Int32 minValue=Int32.MinValue,Int32 maxValue= Int32.MaxValue)
         {
@@ -41,7 +41,7 @@ namespace MockCollection
             return random.Next(minValue, maxValue);
         }
 
-        private static long RandomInt64(long minValue = long.MinValue, long maxValue = Int64.MaxValue)
+        private static long RandomInt64(long minValue = Int32.MinValue, long maxValue = Int32.MaxValue)
         {
             long result = random.Next((Int32)(minValue >> 32), (Int32)(maxValue >> 32));
             result = (result << 32);

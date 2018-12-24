@@ -15,13 +15,13 @@ namespace MockCollection
             IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
             {
                 [typeof(string)] = ()=> RandomString(),
-                [typeof(int)] = () => RandomInt32(),
-                [typeof(long)] = () => RandomInt64(),
-                [typeof(short)] = () => RandomInt16(),
-                [typeof(bool)] = () => RandomBoolean(),
+                [typeof(int)]    = () => RandomInt32(),
+                [typeof(long)]   = () => RandomInt64(),
+                [typeof(short)]  = () => RandomInt16(),
+                [typeof(bool)]   = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(),
-                [typeof(byte)] = () => RandomByte(),
-                [typeof(char)] = () => RandomChar(),
+                [typeof(byte)]   = () => RandomByte(),
+                [typeof(char)]   = () => RandomChar(),
             };
             
             return _actionDictionary.ContainsKey(source)? _actionDictionary[source]?.Invoke():GetDefault(source);
