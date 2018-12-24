@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MockCollection
 {
@@ -47,6 +44,27 @@ namespace MockCollection
             result = (result << 32);
             result = result | (long)random.Next((Int32)minValue, (Int32)maxValue);
             return result;
+        }
+
+        private static UInt16 RandomUInt16()
+        {
+            var byteArray = new byte[2];
+            random.NextBytes(byteArray);
+            return BitConverter.ToUInt16(byteArray, 0);
+        }
+
+        private static UInt32 RandomUInt32()
+        {
+            var byteArray = new byte[4];
+            random.NextBytes(byteArray);
+            return BitConverter.ToUInt32(byteArray,0);
+        }
+
+        private static UInt64 RandomUInt64()
+        {
+            var byteArray = new byte[8];
+            random.NextBytes(byteArray);
+            return BitConverter.ToUInt64(byteArray, 0);
         }
 
         private static string RandomString(int length = 10)

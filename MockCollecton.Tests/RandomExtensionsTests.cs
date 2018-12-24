@@ -62,13 +62,13 @@ namespace MockCollection.Tests
             Assert.AreNotEqual(value1, value2);
         }
 
-        [TestMethod()]
-        [TestCategory("RandomPrimitive")]
-        public void GetRandomValueTest_Boolean()
-        {
-            var value1 = typeof(bool).GetRandomValues();
-            var value2 = typeof(bool).GetRandomValues();
-            Assert.AreNotEqual(value1, value2);
-        }
+        //[TestMethod()]
+        //[TestCategory("RandomPrimitive")]
+        //public void GetRandomValueTest_Boolean()
+        //{
+        //    var value1 = typeof(bool).GetRandomValues();
+        //    var value2 = typeof(bool).GetRandomValues();
+        //    Assert.AreNotEqual(value1, value2);
+        //}
     }
 }
