@@ -28,6 +28,36 @@ namespace MockCollection
             return byteArray[0];
         }
 
+        private static sbyte RandomSByte(int minValue=sbyte.MinValue, int maxValue = sbyte.MaxValue)
+        {
+            return (sbyte)random.Next(minValue, maxValue);
+        }
+
+        private static float RandomFloat()
+        {
+            double mantissa = (random.NextDouble() * 2.0) - 1.0;
+            double exponent = Math.Pow(2.0, random.Next(-126, 128));
+            return (float)(mantissa * exponent);
+        }
+
+        public static int NextInt32(this Random rng)
+        {
+            int firstBits = rng.Next(0, 1 << 4) << 28;
+            int lastBits = rng.Next(0, 1 << 28);
+            return firstBits | lastBits;
+        }
+
+        public static decimal RandomDecimal()
+        {
+            byte scale = (byte)random.Next(29);
+            bool sign = random.Next(2) == 1;
+            return new decimal(random.NextInt32(),
+                               random.NextInt32(),
+                               random.NextInt32(),
+                               sign,
+                               scale);
+        }
+
         private static short RandomInt16(int minValue = Int16.MinValue, int maxValue = Int16.MaxValue)
         {
             return (short)random.Next(minValue, maxValue);
@@ -46,6 +76,7 @@ namespace MockCollection
             return result;
         }
 
+        
         private static UInt16 RandomUInt16()
         {
             var byteArray = new byte[2];
