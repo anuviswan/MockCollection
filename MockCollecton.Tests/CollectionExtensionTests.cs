@@ -25,10 +25,19 @@ namespace MockCollecton.Tests
             public char CharProperty { get; set; }
             public decimal DecimalProperty { get; set; }
         }
+
+
+        private class NestedType
+        {
+            public string StringProperty { get; set; }
+            public TypeWithNoNestedType NestedProperty { get; set; }
+        }
+
         [TestMethod]
         public void CreateCollection_NonNested_GenerateCollectionWithCountAsSpecified()
         {
             var expectedCount = 10;
+
             var instance1 = CollectionExtensions.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
             var instance2 = CollectionExtensions.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
             Assert.AreEqual(expectedCount, instance1.Count);
@@ -52,12 +61,39 @@ namespace MockCollecton.Tests
                 Assert.AreNotEqual(instance1[i].DecimalProperty, instance2[2].DecimalProperty);
 
             }
-            foreach (var item in instance1)
+            
+        }
+
+
+        [TestMethod]
+        public void CreateCollection_Nested_GenerateCollectionWithCountAsSpecified()
+        {
+            var expectedCount = 10;
+
+            var instance1 = CollectionExtensions.GenerateCollection<NestedType>(expectedCount).ToList();
+            var instance2 = CollectionExtensions.GenerateCollection<NestedType>(expectedCount).ToList();
+            Assert.AreEqual(expectedCount, instance1.Count);
+            Assert.AreEqual(expectedCount, instance2.Count);
+
+            for (int i = 0; i < expectedCount; i++)
             {
-                Assert.IsNotNull(item.StringProperty);
-                Assert.IsFalse(string.IsNullOrWhiteSpace(item.StringProperty));
-                Assert.AreNotEqual(0,item.Int32Property);
+                Assert.AreNotEqual(instance1[i].StringProperty, instance2[2].StringProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.Int32Property, instance2[2].NestedProperty.Int32Property);
+                //Assert.AreNotEqual(instance1[i].BoolProperty, instance2[2].BoolProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.SByteProperty, instance2[2].NestedProperty.SByteProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.ShortProperty, instance2[2].NestedProperty.ShortProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.LongProperty, instance2[2].NestedProperty.LongProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.ByteProperty, instance2[2].NestedProperty.ByteProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.UShortProperty, instance2[2].NestedProperty.UShortProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.UInt32Property, instance2[2].NestedProperty.UInt32Property);
+                Assert.AreNotEqual(instance1[i].NestedProperty.ULongProperty, instance2[2].NestedProperty.ULongProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.FloatProperty, instance2[2].NestedProperty.FloatProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.DoubleProperty, instance2[2].NestedProperty.DoubleProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.CharProperty, instance2[2].NestedProperty.CharProperty);
+                Assert.AreNotEqual(instance1[i].NestedProperty.DecimalProperty, instance2[2].NestedProperty.DecimalProperty);
+
             }
+            
         }
     }
 }
