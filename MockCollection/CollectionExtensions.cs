@@ -48,6 +48,9 @@ namespace MockCollection
                     if (property.PropertyType.Assembly == objType.Assembly)
                     {
                         //Console.WriteLine("{0}{1}:", indentString, property.Name);
+                        if (property.PropertyType.IsClass)
+                            propValue = Activator.CreateInstance(property.PropertyType);
+
                         AssignProperties(propValue);
                     }
                     else
