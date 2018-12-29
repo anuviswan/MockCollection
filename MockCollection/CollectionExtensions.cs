@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -49,7 +50,11 @@ namespace MockCollection
                     {
                         //Console.WriteLine("{0}{1}:", indentString, property.Name);
                         if (property.PropertyType.IsClass)
+                        {
                             propValue = Activator.CreateInstance(property.PropertyType);
+                            property.SetValue(obj, propValue);
+                            Debug.WriteLine("Here");
+                        }
 
                         AssignProperties(propValue);
                     }

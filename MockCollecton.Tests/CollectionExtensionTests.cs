@@ -79,7 +79,6 @@ namespace MockCollecton.Tests
             {
                 Assert.AreNotEqual(instance1[i].StringProperty, instance2[2].StringProperty);
                 Assert.AreNotEqual(instance1[i].NestedProperty.Int32Property, instance2[2].NestedProperty.Int32Property);
-                //Assert.AreNotEqual(instance1[i].BoolProperty, instance2[2].BoolProperty);
                 Assert.AreNotEqual(instance1[i].NestedProperty.SByteProperty, instance2[2].NestedProperty.SByteProperty);
                 Assert.AreNotEqual(instance1[i].NestedProperty.ShortProperty, instance2[2].NestedProperty.ShortProperty);
                 Assert.AreNotEqual(instance1[i].NestedProperty.LongProperty, instance2[2].NestedProperty.LongProperty);
