@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>HT.MockCollection</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>anuviswan</owners>
+    <projectUrl>https://github.com/anuviswan/MockCollection</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Mock Collection enables developer to create random collection of objects</description>
+    <releaseNotes>
+      
+    </releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Mock Collection Random Fill</tags>
+  </metadata>
+</package>

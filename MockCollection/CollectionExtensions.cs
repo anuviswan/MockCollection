@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MockCollection
 {
@@ -45,17 +40,13 @@ namespace MockCollection
                 }
                 else
                 {
-                    // This will not cut-off System.Collections because of the first check
                     if (property.PropertyType.Assembly == objType.Assembly)
                     {
-                        //Console.WriteLine("{0}{1}:", indentString, property.Name);
                         if (property.PropertyType.IsClass)
                         {
                             propValue = Activator.CreateInstance(property.PropertyType);
                             property.SetValue(obj, propValue);
-                            Debug.WriteLine("Here");
                         }
-
                         AssignProperties(propValue);
                     }
                     else
