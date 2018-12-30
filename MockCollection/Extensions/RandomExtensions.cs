@@ -10,14 +10,14 @@ namespace MockCollection
     public static partial class RandomExtensions
     {
         private static Random random = new Random();
-        public static dynamic GetRandomValues(this Type source)
+        public static dynamic GetRandomValues(this Type source,double minValue=0,double maxValue=0)
         {
             IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
             {
                 [typeof(string)] = ()=> RandomString(),
                 [typeof(sbyte)] = () => RandomSByte(),
                 [typeof(short)] = () => RandomInt16(),
-                [typeof(int)]    = () => RandomInt32(),
+                [typeof(int)]    = () => minValue==maxValue? RandomInt32(): RandomInt32((int)minValue, (int)maxValue),
                 [typeof(long)]   = () => RandomInt64(),
                 [typeof(bool)]   = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(),
@@ -30,7 +30,7 @@ namespace MockCollection
                 [typeof(float)] = () => RandomFloat(),
             };
             
-            return _actionDictionary.ContainsKey(source)? _actionDictionary[source]?.Invoke():GetDefault(source);
+            return _actionDictionary.ContainsKey(source)? _actionDictionary[source]():GetDefault(source);
         }
 
 

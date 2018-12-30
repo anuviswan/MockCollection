@@ -29,7 +29,8 @@ namespace MockCollection
             {
                 object propValue = property.GetValue(obj, null);
                 property.SetValue(obj, null, null);
-
+                var attribute = property.GetCustomAttribute<NumericConstraintAttribute>(false);
+                
                 var elems = propValue as IList;
                 if (elems != null)
                 {
@@ -51,7 +52,13 @@ namespace MockCollection
                     }
                     else
                     {
-                        var randomValue = property.PropertyType.GetRandomValues();
+                        double maxValue = 0, minValue = 0;
+                        if (attribute != null)
+                        {
+                            maxValue = attribute.MaxValue;
+                            minValue = attribute.MinValue;
+                        }
+                        var randomValue = property.PropertyType.GetRandomValues(minValue,maxValue);
                         property.SetValue(obj, randomValue);
                     }
                 }
