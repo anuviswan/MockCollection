@@ -8,9 +8,11 @@ namespace MockCollecton.Tests
     [TestClass]
     public class CollectionExtensionTests
     {
+        
         private class TypeWithNoNestedType
         {
             public string StringProperty { get; set; }
+            [NumericConstraint(MaxValue = 25, MinValue = 10)]
             public int Int32Property { get; set; }
             public bool BoolProperty { get; set; }
             public sbyte SByteProperty { get; set; }
