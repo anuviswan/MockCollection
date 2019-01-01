@@ -63,7 +63,7 @@ namespace MockCollection
             return (short)random.Next(minValue, maxValue);
         }
 
-        private static int RandomInt32(int minValue = int.MinValue, int maxValue = Int32.MaxValue)
+        private static int RandomInt32(int minValue = Int32.MinValue, int maxValue = Int32.MaxValue)
         {
             return random.Next(minValue, maxValue);
         }

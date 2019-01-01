@@ -17,7 +17,7 @@ namespace MockCollection
                 [typeof(string)] = ()=> RandomString(),
                 [typeof(sbyte)] = () => RandomSByte(),
                 [typeof(short)] = () => RandomInt16(),
-                [typeof(int)]    = () => minValue==maxValue? RandomInt32(): RandomInt32((int)minValue, (int)maxValue),
+                [typeof(int)]    = () => minValue==maxValue && minValue == 0 ? RandomInt32():RandomInt32((int)minValue,(int)maxValue),
                 [typeof(long)]   = () => RandomInt64(),
                 [typeof(bool)]   = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(),
@@ -29,7 +29,6 @@ namespace MockCollection
                 [typeof(decimal)] = () => RandomDecimal(),
                 [typeof(float)] = () => RandomFloat(),
             };
-            
             return _actionDictionary.ContainsKey(source)? _actionDictionary[source]():GetDefault(source);
         }
 

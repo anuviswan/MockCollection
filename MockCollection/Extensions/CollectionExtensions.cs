@@ -52,14 +52,20 @@ namespace MockCollection
                     }
                     else
                     {
-                        double maxValue = 0, minValue = 0;
                         if (attribute != null)
                         {
-                            maxValue = attribute.MaxValue;
-                            minValue = attribute.MinValue;
+                            var maxValue = attribute.MaxValue;
+                            var minValue = attribute.MinValue;
+                            var randomValue = property.PropertyType.GetRandomValues(minValue, maxValue);
+                            property.SetValue(obj, randomValue);
                         }
-                        var randomValue = property.PropertyType.GetRandomValues(minValue,maxValue);
-                        property.SetValue(obj, randomValue);
+                        else
+                        {
+                            var randomValue = property.PropertyType.GetRandomValues();
+                            property.SetValue(obj, randomValue);
+                        }
+                        
+                        
                     }
                 }
             }
