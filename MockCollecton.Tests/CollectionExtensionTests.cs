@@ -47,20 +47,20 @@ namespace MockCollecton.Tests
 
             for (int i = 0; i < expectedCount; i++)
             {
-                Assert.AreNotEqual(instance1[i].StringProperty, instance2[2].StringProperty);
-                Assert.AreNotEqual(instance1[i].Int32Property, instance2[2].Int32Property);
-                //Assert.AreNotEqual(instance1[i].BoolProperty, instance2[2].BoolProperty);
-                Assert.AreNotEqual(instance1[i].SByteProperty, instance2[2].SByteProperty);
-                Assert.AreNotEqual(instance1[i].ShortProperty, instance2[2].ShortProperty);
-                Assert.AreNotEqual(instance1[i].LongProperty, instance2[2].LongProperty);
-                Assert.AreNotEqual(instance1[i].ByteProperty, instance2[2].ByteProperty);
-                Assert.AreNotEqual(instance1[i].UShortProperty, instance2[2].UShortProperty);
-                Assert.AreNotEqual(instance1[i].UInt32Property, instance2[2].UInt32Property);
-                Assert.AreNotEqual(instance1[i].ULongProperty, instance2[2].ULongProperty);
-                Assert.AreNotEqual(instance1[i].FloatProperty, instance2[2].FloatProperty);
-                Assert.AreNotEqual(instance1[i].DoubleProperty, instance2[2].DoubleProperty);
-                Assert.AreNotEqual(instance1[i].CharProperty, instance2[2].CharProperty);
-                Assert.AreNotEqual(instance1[i].DecimalProperty, instance2[2].DecimalProperty);
+                Assert.AreEqual(false, instance1.All(x => x.StringProperty.Equals(instance1.First().StringProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.BoolProperty.Equals(instance1.First().BoolProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.ByteProperty.Equals(instance1.First().ByteProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.CharProperty.Equals(instance1.First().CharProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.DecimalProperty.Equals(instance1.First().DecimalProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.DoubleProperty.Equals(instance1.First().DoubleProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.FloatProperty.Equals(instance1.First().FloatProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.Int32Property.Equals(instance1.First().Int32Property)));
+                Assert.AreEqual(false, instance1.All(x => x.LongProperty.Equals(instance1.First().LongProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.SByteProperty.Equals(instance1.First().SByteProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.ShortProperty.Equals(instance1.First().ShortProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.UInt32Property.Equals(instance1.First().UInt32Property)));
+                Assert.AreEqual(false, instance1.All(x => x.ULongProperty.Equals(instance1.First().ULongProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.UShortProperty.Equals(instance1.First().UShortProperty)));
 
             }
             
@@ -70,31 +70,31 @@ namespace MockCollecton.Tests
         [TestMethod]
         public void CreateCollection_Nested_GenerateCollectionWithCountAsSpecified()
         {
-            var expectedCount = 10;
+            var expectedCount = 100;
 
             var instance1 = CollectionExtensions.GenerateCollection<NestedType>(expectedCount).ToList();
-            var instance2 = CollectionExtensions.GenerateCollection<NestedType>(expectedCount).ToList();
             Assert.AreEqual(expectedCount, instance1.Count);
-            Assert.AreEqual(expectedCount, instance2.Count);
-
+            
             for (int i = 0; i < expectedCount; i++)
             {
-                Assert.AreNotEqual(instance1[i].StringProperty, instance2[2].StringProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.Int32Property, instance2[2].NestedProperty.Int32Property);
-                Assert.AreNotEqual(instance1[i].NestedProperty.SByteProperty, instance2[2].NestedProperty.SByteProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.ShortProperty, instance2[2].NestedProperty.ShortProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.LongProperty, instance2[2].NestedProperty.LongProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.ByteProperty, instance2[2].NestedProperty.ByteProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.UShortProperty, instance2[2].NestedProperty.UShortProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.UInt32Property, instance2[2].NestedProperty.UInt32Property);
-                Assert.AreNotEqual(instance1[i].NestedProperty.ULongProperty, instance2[2].NestedProperty.ULongProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.FloatProperty, instance2[2].NestedProperty.FloatProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.DoubleProperty, instance2[2].NestedProperty.DoubleProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.CharProperty, instance2[2].NestedProperty.CharProperty);
-                Assert.AreNotEqual(instance1[i].NestedProperty.DecimalProperty, instance2[2].NestedProperty.DecimalProperty);
+                Assert.AreEqual(false, instance1.All(x=>x.StringProperty.Equals(instance1.First().StringProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.StringProperty.Equals(instance1.First().NestedProperty.StringProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.BoolProperty.Equals(instance1.First().NestedProperty.BoolProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.ByteProperty.Equals(instance1.First().NestedProperty.ByteProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.CharProperty.Equals(instance1.First().NestedProperty.CharProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.DecimalProperty.Equals(instance1.First().NestedProperty.DecimalProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.DoubleProperty.Equals(instance1.First().NestedProperty.DoubleProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.FloatProperty.Equals(instance1.First().NestedProperty.FloatProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.Int32Property.Equals(instance1.First().NestedProperty.Int32Property)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.LongProperty.Equals(instance1.First().NestedProperty.LongProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.SByteProperty.Equals(instance1.First().NestedProperty.SByteProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.ShortProperty.Equals(instance1.First().NestedProperty.ShortProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.UInt32Property.Equals(instance1.First().NestedProperty.UInt32Property)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.ULongProperty.Equals(instance1.First().NestedProperty.ULongProperty)));
+                Assert.AreEqual(false, instance1.All(x => x.NestedProperty.UShortProperty.Equals(instance1.First().NestedProperty.UShortProperty)));
 
             }
-            
+
         }
     }
 }
