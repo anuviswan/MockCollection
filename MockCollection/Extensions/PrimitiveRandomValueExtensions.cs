@@ -7,7 +7,7 @@ namespace MockCollection
     {
         private static bool RandomBoolean()
         {
-            return Convert.ToBoolean(random.Next(0, 2)); // Max value is exclusive
+            return Convert.ToBoolean(random.Next(0, 2)); 
         }
         private static double RandomDouble(Int32 minValue=Int32.MinValue,Int32 maxValue= Int32.MaxValue)
         {
@@ -17,9 +17,9 @@ namespace MockCollection
         private static char RandomChar(bool isLowerCase = true)
         {
             if (isLowerCase)
-                return  (char)random.Next((int)'a', (int)'z');
+                return  (char)random.Next((int)'a', ((int)'z')+1);
              else
-                return (char)random.Next((int)'A', (int)'A');
+                return (char)random.Next((int)'A', ((int)'A')+1);
         }
         private static byte RandomByte()
         {
