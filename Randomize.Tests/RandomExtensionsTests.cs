@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MockCollection;
+using Randomize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MockCollection.Tests
+namespace Randomize.Tests
 {
     [TestClass()]
     public class RandomExtensionsTests

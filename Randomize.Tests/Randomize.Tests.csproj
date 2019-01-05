@@ -59,9 +59,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MockCollection\MockCollection.csproj">
+    <ProjectReference Include="..\Randomize\Randomize.csproj">
       <Project>{90ECBA4C-52EF-47CE-A49D-594EE264E8F3}</Project>
-      <Name>MockCollection</Name>
+      <Name>Randomize</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

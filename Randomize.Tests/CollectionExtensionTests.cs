@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MockCollection;
+using Randomize;
 using System.Linq;
 
-namespace MockCollecton.Tests
+namespace Randomize.Tests
 {
     [TestClass]
     public class CollectionExtensionTests

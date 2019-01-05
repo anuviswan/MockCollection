@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MockCollection;
+using Randomize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MockCollecton.Tests
+namespace Randomize.Tests
 {
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
     public class AttributeTests

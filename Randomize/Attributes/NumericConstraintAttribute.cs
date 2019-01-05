@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MockCollection
+namespace Randomize
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class NumericConstraintAttribute: Attribute

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace MockCollection
+namespace Randomize
 {
     public static partial class RandomExtensions
     {
