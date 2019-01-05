@@ -25,16 +25,27 @@ namespace Randomize.Net
         public static T GenerateInstance<T>(this Random source)
         {
             _random = source;
-            return GenerateInstance<T>();
+            var type = typeof(T);
+            if (type.IsPrimitive || type == typeof(Decimal) || type == typeof(String))
+            {
+                return type.GetRandomValues();
+            }
+            else
+            {
+                var instance = GenerateInstance<T>();
+                AssignProperties(instance);
+                return instance;
+            }
         }
         private static T GenerateInstance<T>()
         {
-            return Activator.CreateInstance<T>();
+             return Activator.CreateInstance<T>();
         }
         private static void AssignProperties(object obj)
         {
             if (obj == null) return;
             Type objType = obj.GetType();
+            
             PropertyInfo[] properties = objType.GetProperties();
             foreach (PropertyInfo property in properties)
             {
