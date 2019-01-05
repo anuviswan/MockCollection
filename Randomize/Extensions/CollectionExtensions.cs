@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Randomize
+namespace Randomize.Net
 {
-    public class CollectionExtensions
+    public static partial class RandomExtensions
     {
-        public static IEnumerable<T> GenerateCollection<T>(int count = 1)
+        public static IEnumerable<T> GenerateCollection<T>(this Random source,int count = 1)
+        {
+            _random = source;
+            return GenerateCollection<T>(count);
+        }
+        private static IEnumerable<T> GenerateCollection<T>(int count = 1)
         {
             for(int i = 0; i < count; i++)
             {
@@ -16,7 +21,13 @@ namespace Randomize
                 yield return instance;
             }
         }
-        public static T GenerateInstance<T>()
+
+        public static T GenerateInstance<T>(this Random source)
+        {
+            _random = source;
+            return GenerateInstance<T>();
+        }
+        private static T GenerateInstance<T>()
         {
             return Activator.CreateInstance<T>();
         }

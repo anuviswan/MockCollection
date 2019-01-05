@@ -5,12 +5,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Randomize
+namespace Randomize.Net
 {
     public static partial class RandomExtensions
     {
-        private static Random random = new Random();
-        public static dynamic GetRandomValues(this Type source,double minValue=0,double maxValue=0)
+        private static Random _random;
+        private static dynamic GetRandomValues(this Type source,double minValue=0,double maxValue=0)
         {
             IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
             {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Randomize;
+using Randomize.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,14 @@ namespace Randomize.Tests
     [TestClass()]
     public class RandomExtensionsTests
     {
+        private Random _random = new Random();
+
         [TestMethod()]
         [TestCategory("RandomPrimitive")]
         public void GetRandomValueTest_String()
         {
-            var value1 = typeof(string).GetRandomValues();
-            var value2 = typeof(string).GetRandomValues();
+            var value1 = _random.GenerateInstance<string>();
+            var value2 = _random.GenerateInstance<string>();
             Assert.IsFalse(string.IsNullOrEmpty(value1));
             Assert.IsFalse(string.IsNullOrEmpty(value2));
             Assert.AreNotEqual(value1, value2);
@@ -27,8 +29,8 @@ namespace Randomize.Tests
         [TestCategory("RandomPrimitive")]
         public void GetRandomValueTest_Char()
         {
-            var value1 = typeof(char).GetRandomValues();
-            var value2 = typeof(char).GetRandomValues();
+            var value1 = _random.GenerateInstance<char>();
+            var value2 = _random.GenerateInstance<char>();
             Assert.AreNotEqual(value1,value2);
         }
 
@@ -37,8 +39,8 @@ namespace Randomize.Tests
         [TestCategory("RandomPrimitive")]
         public void GetRandomValueTest_Int32()
         {
-            var value1 = typeof(int).GetRandomValues();
-            var value2 = typeof(int).GetRandomValues();
+            var value1 = _random.GenerateInstance<int>();
+            var value2 = _random.GenerateInstance<int>();
             Assert.AreNotEqual(value1,value2);
         }
 
@@ -47,8 +49,8 @@ namespace Randomize.Tests
         [TestCategory("RandomPrimitive")]
         public void GetRandomValueTest_Int64()
         {
-            var value1 = typeof(long).GetRandomValues();
-            var value2 = typeof(long).GetRandomValues();
+            var value1 = _random.GenerateInstance<long>();
+            var value2 = _random.GenerateInstance<long>();
             Assert.AreNotEqual(value1, value2);
         }
 
@@ -57,18 +59,10 @@ namespace Randomize.Tests
         [TestCategory("RandomPrimitive")]
         public void GetRandomValueTest_Int16()
         {
-            var value1 = typeof(short).GetRandomValues();
-            var value2 = typeof(short).GetRandomValues();
+            var value1 = _random.GenerateInstance<short>(); ;
+            var value2 = _random.GenerateInstance<short>();
             Assert.AreNotEqual(value1, value2);
         }
 
-        //[TestMethod()]
-        //[TestCategory("RandomPrimitive")]
-        //public void GetRandomValueTest_Boolean()
-        //{
-        //    var value1 = typeof(bool).GetRandomValues();
-        //    var value2 = typeof(bool).GetRandomValues();
-        //    Assert.AreNotEqual(value1, value2);
-        //}
     }
 }

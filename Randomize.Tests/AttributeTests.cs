@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Randomize;
+using Randomize.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,7 @@ namespace Randomize.Tests
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
     public class AttributeTests
     {
+        private Random _random = new Random();
         private class TypeWithMaxAndMin
         {
             public string StringProperty { get; set; }
@@ -38,7 +39,8 @@ namespace Randomize.Tests
         [TestMethod]
         public void MaxMinLimitTest()
         {
-            var list = CollectionExtensions.GenerateCollection<TypeWithMaxAndMin>(100);
+            
+            var list = _random.GenerateCollection<TypeWithMaxAndMin>(100);
             Assert.AreEqual(true, list.All(x => x.Int32Property >= 20 && x.Int32Property <= 25));
         }
 
@@ -46,14 +48,14 @@ namespace Randomize.Tests
         [TestMethod]
         public void OnlyMaxLimitTest()
         {
-            var list = CollectionExtensions.GenerateCollection<TypeWithMaxOnly>(1000);
+            var list = _random.GenerateCollection<TypeWithMaxOnly>(1000);
             Assert.AreEqual(true, list.All(x =>  x.Int32Property <= 15));
         }
 
         [TestMethod]
         public void OnlyMinLimitTest()
         {
-            var list = CollectionExtensions.GenerateCollection<TypeWithMinOnly>(1000);
+            var list = _random.GenerateCollection<TypeWithMinOnly>(1000);
             Assert.AreEqual(true, list.All(x => x.Int32Property >= 15));
         }
     }

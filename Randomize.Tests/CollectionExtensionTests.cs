@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Randomize;
+using Randomize.Net;
 using System.Linq;
 
 namespace Randomize.Tests
@@ -8,7 +8,7 @@ namespace Randomize.Tests
     [TestClass]
     public class CollectionExtensionTests
     {
-        
+        private Random _random = new Random();
         private class TypeWithNoNestedType
         {
             public string StringProperty { get; set; }
@@ -39,8 +39,8 @@ namespace Randomize.Tests
         {
             var expectedCount = 10;
 
-            var instance1 = CollectionExtensions.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
-            var instance2 = CollectionExtensions.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
+            var instance1 = _random.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
+            var instance2 = _random.GenerateCollection<TypeWithNoNestedType>(expectedCount).ToList();
             Assert.AreEqual(expectedCount, instance1.Count);
             Assert.AreEqual(expectedCount, instance2.Count);
 
@@ -71,7 +71,7 @@ namespace Randomize.Tests
         {
             var expectedCount = 100;
 
-            var instance1 = CollectionExtensions.GenerateCollection<NestedType>(expectedCount).ToList();
+            var instance1 = _random.GenerateCollection<NestedType>(expectedCount).ToList();
             Assert.AreEqual(expectedCount, instance1.Count);
             
             for (int i = 0; i < expectedCount; i++)
