@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Randomize.Net</id>
+    <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
+    <authors>anuviswan</authors>
     <owners>anuviswan</owners>
     <projectUrl>https://github.com/anuviswan/MockCollection</projectUrl>
+    <iconUrl>https://github.com/anuviswan/MockCollection/blob/master/Icons/randomize.net.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Randomize.Net provides an easy and lightweight extensions for System.Random for creating random instances of any type, with generated random value. </description>
-    <releaseNotes>
-      
-    </releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Random</tags>
+    <description>Randomize.Net provides an easy and lightweight extensions for System.Random for creating random instances of any type, with generated random value.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Randomize.Net Random</tags>
   </metadata>
 </package>

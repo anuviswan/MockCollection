@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MockCollection")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Randomize.Net")]
+[assembly: AssemblyDescription("Randomize.Net provides an easy and lightweight extensions for System.Random for creating random instances of any type, with generated random value.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MockCollection")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("JSoft")]
+[assembly: AssemblyProduct("Randomize.Net")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyTrademark("Anu Viswan")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
