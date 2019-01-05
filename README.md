@@ -1,12 +1,13 @@
 **Randomize.Net**
 
-Randomize.Net provides an easy and lightweight solution for creating instances of any type, with generated random value. 
+Randomize.Net provides an easy and lightweight extensions for **System.Random** for creating random instances of any type, with generated random value. 
 
 For Example,
 
 ```csharp
-var randomString = Randomize.GenerateInstance<string>(); 
-var randomInt32 = Randomize.GenerateInstance<int32>();
+var _random = new Random();_
+var randomString = _random.GenerateInstance<string>(); 
+var randomInt32 = _random.GenerateInstance<int32>();
 ```
 
 Randmize.Net works with User Defined Types as well, including nested User Defined Types.
@@ -25,8 +26,8 @@ public class AnotherSampleClass
     public string StringProperty{get;set;}
 }
 
-var sampleClass = Randomize.GenerateInstance<SampleClass>();
-var anotherSampleClass = Randomize.GenerateInstance<AnotherSampleClass>();
+var sampleClass = _random.GenerateInstance<SampleClass>();
+var anotherSampleClass = _random.GenerateInstance<AnotherSampleClass>();
 ```
 
 
