@@ -37,10 +37,8 @@ namespace Randomize.Net
                 return instance;
             }
         }
-        private static T GenerateInstance<T>()
-        {
-             return Activator.CreateInstance<T>();
-        }
+        private static T GenerateInstance<T>() => Activator.CreateInstance<T>();
+
         private static void AssignProperties(object obj)
         {
             if (obj == null) return;
@@ -52,9 +50,8 @@ namespace Randomize.Net
                 object propValue = property.GetValue(obj, null);
                 property.SetValue(obj, null, null);
                 var attribute = property.GetCustomAttribute<NumericConstraintAttribute>(false);
-                
-                var elems = propValue as IList;
-                if (elems != null)
+
+                if (propValue is IList elems)
                 {
                     foreach (var item in elems)
                     {
@@ -86,8 +83,8 @@ namespace Randomize.Net
                             var randomValue = property.PropertyType.GetRandomValues();
                             property.SetValue(obj, randomValue);
                         }
-                        
-                        
+
+
                     }
                 }
             }
