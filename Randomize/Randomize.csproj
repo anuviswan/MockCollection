@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\NumericConstraintAttribute.cs" />
+    <Compile Include="Attributes\Double\LimitAttribute.cs" />
+    <Compile Include="Attributes\ILimit.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\PrimitiveRandomValueExtensions.cs" />
     <Compile Include="Extensions\RandomExtensions.cs" />
