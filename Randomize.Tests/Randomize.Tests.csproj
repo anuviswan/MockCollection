@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributeTests\DoubleAttributeTest.cs" />
+    <Compile Include="AttributeTests\IntAttributeTest.cs" />
     <Compile Include="RandomExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CollectionExtensionTests.cs" />
