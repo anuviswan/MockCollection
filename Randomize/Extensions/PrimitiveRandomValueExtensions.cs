@@ -9,9 +9,12 @@ namespace Randomize.Net
         {
             return Convert.ToBoolean(_random.Next(0, 2)); 
         }
-        private static double RandomDouble(Int32 minValue=Int32.MinValue,Int32 maxValue= Int32.MaxValue)
+        private static double RandomDouble(Attributes.BaseLimitAttribute baseLimitAttribute)
         {
-            return _random.NextDouble() * (double)_random.Next(minValue,maxValue);
+            if (baseLimitAttribute is Attributes.Double.LimitAttribute limit)
+                return limit.Min + _random.NextDouble() * (limit.Max - limit.Min);
+
+            return _random.NextDouble() * (double)_random.Next(Int32.MinValue,Int32.MaxValue);
         }
 
         private static char RandomChar(bool isLowerCase = true)

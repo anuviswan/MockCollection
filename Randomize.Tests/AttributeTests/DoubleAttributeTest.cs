@@ -13,7 +13,8 @@ namespace MockCollecton.Tests.AttributeTests
         {
             var random = new Random();
             var dataList = random.GenerateCollection<Data>(100);
-            Assert.IsTrue(dataList.All(x => x.Number > 10 && x.Number < 20));
+            var list = dataList.Where(x => x.Number < 10 || x.Number > 20).Select(x=>x.Number).ToList();
+            Assert.IsTrue(dataList.All(x => x.Number >= 10 && x.Number <= 20));
         }
 
         private class Data
