@@ -78,8 +78,8 @@ namespace Randomize.Net
 
         private static long RandomInt64(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
-            var minValue = long.MinValue;
-            var maxValue = long.MaxValue;
+            long minValue = Int32.MinValue;
+            long maxValue = Int32.MaxValue;
 
             if (baseLimitAttribute is Attributes.Int64.LimitAttribute attribute)
             {
@@ -89,7 +89,7 @@ namespace Randomize.Net
 
             long result = _random.Next((Int32)(minValue >> 32), (Int32)(maxValue >> 32));
             result = (result << 32);
-            result = result | (long)_random.Next((Int32)minValue, (Int32)maxValue);
+            result = result | (long)_random.Next((Int32)minValue >> 32, (Int32)maxValue >> 32);
             return result;
         }
 
