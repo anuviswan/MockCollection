@@ -16,9 +16,9 @@ namespace Randomize.Net
             {
                 [typeof(string)] = () => RandomString(),
                 [typeof(sbyte)] = () => RandomSByte(),
-                [typeof(short)] = () => RandomInt16(),
+                [typeof(short)] = () => RandomInt16(limitAttribute),
                 [typeof(int)] = () => RandomInt32(limitAttribute),
-                [typeof(long)]   = () => RandomInt64(),
+                [typeof(long)]   = () => RandomInt64(limitAttribute),
                 [typeof(bool)]   = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(limitAttribute),
                 [typeof(byte)]   = () => RandomByte(),

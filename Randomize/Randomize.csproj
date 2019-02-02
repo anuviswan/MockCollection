@@ -44,11 +44,13 @@
   <ItemGroup>
     <Compile Include="Attributes\Double\LimitAttribute.cs" />
     <Compile Include="Attributes\ILimit.cs" />
+    <Compile Include="Attributes\Int16\LimitAttribute.cs" />
     <Compile Include="Attributes\Int32\LimitAttribute.cs" />
     <Compile Include="Attributes\BaseLimitAttribute.cs" />
-    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Attributes\Int64\LimitAttribute.cs" />
+    <Compile Include="Extensions\RandomExtension.cs" />
     <Compile Include="Extensions\PrimitiveRandomValueExtensions.cs" />
-    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\IndividualTypeRandomExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

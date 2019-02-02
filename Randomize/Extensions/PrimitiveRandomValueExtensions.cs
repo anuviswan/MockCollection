@@ -9,7 +9,7 @@ namespace Randomize.Net
         {
             return Convert.ToBoolean(_random.Next(0, 2)); 
         }
-        private static double RandomDouble(Attributes.BaseLimitAttribute baseLimitAttribute)
+        private static double RandomDouble(Attributes.BaseLimitAttribute baseLimitAttribute=null)
         {
             if (baseLimitAttribute is Attributes.Double.LimitAttribute limit)
                 return limit.Min + _random.NextDouble() * (limit.Max - limit.Min);
@@ -61,12 +61,14 @@ namespace Randomize.Net
                                scale);
         }
 
-        private static short RandomInt16(int minValue = Int16.MinValue, int maxValue = Int16.MaxValue)
+        private static short RandomInt16(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
-            return (short)_random.Next(minValue, maxValue);
+            if (baseLimitAttribute is Attributes.Int16.LimitAttribute attribute)
+                return (short)_random.Next(attribute.Min,attribute.Max);
+            return (short)_random.Next((int)short.MinValue, short.MaxValue);
         }
 
-        private static int RandomInt32(Attributes.BaseLimitAttribute baseLimitAttribute)
+        private static int RandomInt32(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
             if(baseLimitAttribute is Attributes.Int32.LimitAttribute attribute)
                 return _random.Next(attribute.Min, attribute.Max);
@@ -74,8 +76,17 @@ namespace Randomize.Net
             return _random.Next(Int32.MinValue,Int32.MaxValue); 
         }
 
-        private static long RandomInt64(long minValue = Int32.MinValue, long maxValue = Int32.MaxValue)
+        private static long RandomInt64(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
+            var minValue = long.MinValue;
+            var maxValue = long.MaxValue;
+
+            if (baseLimitAttribute is Attributes.Int64.LimitAttribute attribute)
+            {
+                minValue = attribute.Min;
+                maxValue = attribute.Max;
+            }
+
             long result = _random.Next((Int32)(minValue >> 32), (Int32)(maxValue >> 32));
             result = (result << 32);
             result = result | (long)_random.Next((Int32)minValue, (Int32)maxValue);

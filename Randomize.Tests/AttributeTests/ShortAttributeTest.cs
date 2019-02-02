@@ -1,12 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Randomize.Net;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MockCollecton.Tests.AttributeTests
 {
     [TestClass]
-    public class DoubleAttributeTest
+    public class ShortAttributeTest
     {
         [TestMethod]
         public void ValidLimit_ValuesRemainsWithinRange()
@@ -18,8 +21,8 @@ namespace MockCollecton.Tests.AttributeTests
 
         private class Data
         {
-            [Randomize.Net.Attributes.Double.Limit(Max =20, Min =10)]
-            public double Number { get; set; }
+            [Randomize.Net.Attributes.Int16.Limit(Max = 20, Min = 10)]
+            public short Number { get; set; }
         }
     }
 }
