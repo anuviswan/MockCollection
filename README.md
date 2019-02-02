@@ -1,6 +1,6 @@
 **Randomize.Net**
 
-Randomize.Net provides an easy and lightweight extensions for **System.Random** for creating random instances of any type, with generated random value. 
+Randomize.Net provides an easy and lightweight extensions for **System.Random** for creating random instances of any type, with generated random value. The whole idea behind Randomize.Net is extend the much familiar System.Random syntax for generating random collections rather than reinventing the wheel with a new syntax.
 
 For Example,
 
@@ -30,7 +30,7 @@ var sampleClass = _random.GenerateInstance<SampleClass>();
 var anotherSampleClass = _random.GenerateInstance<AnotherSampleClass>();
 ```
 
-Randomize.Net also supports generation of Collections.
+*Randomize.Net* also supports generation of Collections.
 
 ```csharp
 // Method Signature
