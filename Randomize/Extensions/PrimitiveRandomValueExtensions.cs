@@ -63,9 +63,12 @@ namespace Randomize.Net
             return (short)_random.Next(minValue, maxValue);
         }
 
-        private static int RandomInt32(int minValue = Int32.MinValue, int maxValue = Int32.MaxValue)
+        private static int RandomInt32(Attributes.BaseLimitAttribute baseLimitAttribute)
         {
-            return _random.Next(minValue, maxValue);
+            if(baseLimitAttribute is Attributes.Int32.LimitAttribute attribute)
+                return _random.Next(attribute.Min, attribute.Max);
+
+            return _random.Next(Int32.MinValue,Int32.MaxValue); 
         }
 
         private static long RandomInt64(long minValue = Int32.MinValue, long maxValue = Int32.MaxValue)

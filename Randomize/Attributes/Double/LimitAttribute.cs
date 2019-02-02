@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Randomize.Net.Attributes.Double
 {
+    
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    public sealed class LimitAttribute : Attribute, ILimit<double>
+    public sealed class LimitAttribute : BaseLimitAttribute, ILimit<double>
     {
         public double Max { get; set; }
         public double Min { get; set; }

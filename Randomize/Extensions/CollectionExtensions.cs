@@ -49,8 +49,7 @@ namespace Randomize.Net
             {
                 object propValue = property.GetValue(obj, null);
                 property.SetValue(obj, null, null);
-                var attribute = property.GetCustomAttribute<Attributes.Double.LimitAttribute>(false);
-
+                var limitAttribute = property.GetCustomAttribute<Attributes.BaseLimitAttribute>(false);
                 if (propValue is IList elems)
                 {
                     foreach (var item in elems)
@@ -71,20 +70,8 @@ namespace Randomize.Net
                     }
                     else
                     {
-                        if (attribute != null)
-                        {
-                            var maxValue = attribute.Max;
-                            var minValue = attribute.Min;
-                            var randomValue = property.PropertyType.GetRandomValues(minValue, maxValue);
-                            property.SetValue(obj, randomValue);
-                        }
-                        else
-                        {
-                            var randomValue = property.PropertyType.GetRandomValues();
-                            property.SetValue(obj, randomValue);
-                        }
-
-
+                        var randomValue = property.PropertyType.GetRandomValues(limitAttribute);
+                        property.SetValue(obj, randomValue);
                     }
                 }
             }

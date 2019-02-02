@@ -16,13 +16,13 @@ namespace MockCollecton.Tests.AttributeTests
         {
             var random = new Random();
             var dataList = random.GenerateCollection<Data>(100);
-            Assert.IsTrue(dataList.All(x => x.Number > 10 && x.Number < 20));
+            Assert.IsTrue(dataList.All(x => x.Number >= 10 && x.Number <= 20));
         }
 
         private class Data
         {
             [Randomize.Net.Attributes.Int32.Limit(Max = 20, Min = 10)]
-            public double Number { get; set; }
+            public Int32 Number { get; set; }
         }
     }
 }

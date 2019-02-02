@@ -10,14 +10,14 @@ namespace Randomize.Net
     public static partial class RandomExtensions
     {
         private static Random _random;
-        private static dynamic GetRandomValues(this Type source,double minValue=0,double maxValue=0)
+        private static dynamic GetRandomValues(this Type source, Attributes.BaseLimitAttribute limitAttribute=null)
         {
             IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
             {
-                [typeof(string)] = ()=> RandomString(),
+                [typeof(string)] = () => RandomString(),
                 [typeof(sbyte)] = () => RandomSByte(),
                 [typeof(short)] = () => RandomInt16(),
-                [typeof(int)]    = () => minValue==maxValue && minValue == 0 ? RandomInt32():RandomInt32((int)minValue,(int)maxValue),
+                [typeof(int)] = () => RandomInt32(limitAttribute),
                 [typeof(long)]   = () => RandomInt64(),
                 [typeof(bool)]   = () => RandomBoolean(),
                 [typeof(double)] = () => RandomDouble(),
