@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Randomize.Net.Attributes
 {
-    public class BaseLimitAttribute : BaseAttribute
+    public class BaseAttribute:Attribute
     {
     }
 }

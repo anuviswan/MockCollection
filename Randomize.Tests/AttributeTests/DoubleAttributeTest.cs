@@ -16,9 +16,24 @@ namespace MockCollecton.Tests.AttributeTests
             Assert.IsTrue(dataList.All(x => x.Number >= 10 && x.Number <= 20));
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),AllowDerivedTypes =true)]
+        public void ValidLimit_ThrowInvalidArguementException()
+        {
+            var random = new Random();
+            var dataList = random.GenerateCollection<IncorrectAttributeData>(100);
+            Assert.IsTrue(dataList.All(x => x.Number >= 10 && x.Number <= 20));
+        }
+
         private class Data
         {
             [Randomize.Net.Attributes.Double.Limit(Max =20, Min =10)]
+            public double Number { get; set; }
+        }
+
+        private class IncorrectAttributeData
+        {
+            [Randomize.Net.Attributes.Int32.Limit(Max = 20, Min = 10)]
             public double Number { get; set; }
         }
     }
