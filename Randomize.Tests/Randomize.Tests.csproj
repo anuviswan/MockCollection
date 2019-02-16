@@ -55,6 +55,7 @@
     <Compile Include="AttributeTests\LongAttributeTest.cs" />
     <Compile Include="AttributeTests\ShortAttributeTest.cs" />
     <Compile Include="AttributeTests\UIntAttributeTest.cs" />
+    <Compile Include="AttributeTests\ULongAttributeTest.cs" />
     <Compile Include="AttributeTests\UShortAttributeTest.cs" />
     <Compile Include="RandomExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

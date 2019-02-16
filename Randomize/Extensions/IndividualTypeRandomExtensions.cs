@@ -25,7 +25,7 @@ namespace Randomize.Net
                 [typeof(char)]   = () => RandomChar(),
                 [typeof(ushort)] = () => RandomUInt16(limitAttribute),
                 [typeof(uint)]   = () => RandomUInt32(limitAttribute),
-                [typeof(ulong)]  = () => RandomUInt64(),
+                [typeof(ulong)]  = () => RandomUInt64(limitAttribute),
                 [typeof(decimal)] = () => RandomDecimal(),
                 [typeof(float)] = () => RandomFloat(),
             };
