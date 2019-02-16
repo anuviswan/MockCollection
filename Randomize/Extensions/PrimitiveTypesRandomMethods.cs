@@ -102,6 +102,7 @@ namespace Randomize.Net
             long result = _random.Next((Int32)(minValue >> 32), (Int32)(maxValue >> 32));
             result = (result << 32);
             result = result | (long)_random.Next((Int32)minValue >> 32, (Int32)maxValue >> 32);
+            result = (Math.Abs(result % (maxValue - minValue)) + minValue);
             return result;
         }
 
