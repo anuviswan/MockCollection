@@ -109,8 +109,8 @@ namespace Randomize.Net
         
         private static UInt16 RandomUInt16(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
-            long minValue = Int32.MinValue;
-            long maxValue = Int32.MaxValue;
+            ushort minValue = UInt16.MinValue;
+            ushort maxValue = UInt16.MaxValue;
 
 
             if (baseLimitAttribute is Attributes.UInt16.LimitAttribute attribute)
@@ -130,11 +130,28 @@ namespace Randomize.Net
             return result;
         }
 
-        private static UInt32 RandomUInt32()
+        private static UInt32 RandomUInt32(Attributes.BaseLimitAttribute baseLimitAttribute = null)
         {
+            uint minValue = UInt16.MinValue;
+            uint maxValue = UInt16.MaxValue;
+
+
+            if (baseLimitAttribute is Attributes.UInt32.LimitAttribute attribute)
+            {
+                minValue = attribute.Min;
+                maxValue = attribute.Max;
+            }
+            else if (baseLimitAttribute != null)
+            {
+                throw new InvalidAttributeException(typeof(Attributes.UInt32.LimitAttribute));
+            }
+
             var byteArray = new byte[4];
             _random.NextBytes(byteArray);
-            return BitConverter.ToUInt32(byteArray,0);
+            var result = BitConverter.ToUInt32(byteArray,0);
+            result = (uint)(Math.Abs(result % (maxValue - minValue)) + minValue);
+            return result;
+
         }
 
         private static UInt64 RandomUInt64()

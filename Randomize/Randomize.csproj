@@ -50,6 +50,7 @@
     <Compile Include="Attributes\BaseLimitAttribute.cs" />
     <Compile Include="Attributes\Int64\LimitAttribute.cs" />
     <Compile Include="Attributes\UInt16\LimitAttribute.cs" />
+    <Compile Include="Attributes\UInt32\LimitAttribute.cs" />
     <Compile Include="Exceptions\AttributeExceptions.cs" />
     <Compile Include="Extensions\RandomExtension.cs" />
     <Compile Include="Extensions\PrimitiveTypesRandomMethods.cs" />

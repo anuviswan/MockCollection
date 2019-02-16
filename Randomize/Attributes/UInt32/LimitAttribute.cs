@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Randomize.Net.Attributes.UInt16
+namespace Randomize.Net.Attributes.UInt32
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    public sealed class LimitAttribute : BaseLimitAttribute, ILimit<ushort>
+    public sealed class LimitAttribute : BaseLimitAttribute, ILimit<uint>
     {
-        public ushort Max { get; set; }
-        public ushort Min { get; set; }
+        public uint Max { get; set; }
+        public uint Min { get; set; }
     }
 }
