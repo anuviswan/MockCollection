@@ -28,13 +28,13 @@ namespace MockCollecton.Tests.AttributeTests
 
         private class IncorrectAttributeData
         {
-            [Randomize.Net.Attributes.Double.Limit(Max = 20, Min = 10)]
+            [Randomize.Net.Attributes.Double.Limit(MaximumValue = 20, MinimumValue = 10)]
             public short Number { get; set; }
         }
 
         private class Data
         {
-            [Randomize.Net.Attributes.Int16.Limit(Max = 20, Min = 10)]
+            [Randomize.Net.Attributes.Int16.Limit(MaximumValue = 20, MinimumValue = 10)]
             public short Number { get; set; }
         }
     }

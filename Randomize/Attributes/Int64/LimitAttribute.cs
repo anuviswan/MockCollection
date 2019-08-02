@@ -9,7 +9,7 @@ namespace Randomize.Net.Attributes.Int64
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class LimitAttribute : BaseLimitAttribute, ILimit<long>
     {
-        public long Max { get; set; }
-        public long Min { get; set; }
+        public long MaximumValue { get; set; }
+        public long MinimumValue { get; set; }
     }
 }

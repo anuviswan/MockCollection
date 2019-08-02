@@ -14,7 +14,7 @@ namespace Randomize.Net
         {
             if(baseLimitAttribute == null) return _random.NextDouble() * (double)_random.Next(Int32.MinValue, Int32.MaxValue);
             if (baseLimitAttribute is Attributes.Double.LimitAttribute limit)
-                return limit.Min + _random.NextDouble() * (limit.Max - limit.Min);
+                return limit.MinimumValue + _random.NextDouble() * (limit.MaximumValue - limit.MinimumValue);
 
             throw new InvalidAttributeException(typeof(Attributes.Double.LimitAttribute));
         }
@@ -68,7 +68,7 @@ namespace Randomize.Net
             if(baseLimitAttribute == null) return (short)_random.Next((int)short.MinValue, short.MaxValue);
 
             if (baseLimitAttribute is Attributes.Int16.LimitAttribute attribute)
-                return (short)_random.Next(attribute.Min,attribute.Max);
+                return (short)_random.Next(attribute.MinimumValue,attribute.MaximumValue);
             
             throw new InvalidAttributeException(typeof(Attributes.Int16.LimitAttribute));
         }
@@ -78,7 +78,7 @@ namespace Randomize.Net
             if(baseLimitAttribute == null) return _random.Next(Int32.MinValue, Int32.MaxValue);
 
             if (baseLimitAttribute is Attributes.Int32.LimitAttribute attribute)
-                return _random.Next(attribute.Min, attribute.Max);
+                return _random.Next(attribute.MinimumValue, attribute.MaximumValue);
 
             throw new InvalidAttributeException(typeof(Attributes.Int32.LimitAttribute));
         }
@@ -91,8 +91,8 @@ namespace Randomize.Net
 
             if (baseLimitAttribute is Attributes.Int64.LimitAttribute attribute)
             {
-                minValue = attribute.Min;
-                maxValue = attribute.Max;
+                minValue = attribute.MinimumValue;
+                maxValue = attribute.MaximumValue;
             }
             else if(baseLimitAttribute !=null)
             {
@@ -114,8 +114,8 @@ namespace Randomize.Net
 
             if (baseLimitAttribute is Attributes.UInt16.LimitAttribute attribute)
             {
-                minValue = attribute.Min;
-                maxValue = attribute.Max;
+                minValue = attribute.MinimumValue;
+                maxValue = attribute.MaximumValue;
             }
             else if (baseLimitAttribute != null)
             {
@@ -136,8 +136,8 @@ namespace Randomize.Net
 
             if (baseLimitAttribute is Attributes.UInt32.LimitAttribute attribute)
             {
-                minValue = attribute.Min;
-                maxValue = attribute.Max;
+                minValue = attribute.MinimumValue;
+                maxValue = attribute.MaximumValue;
             }
             else if (baseLimitAttribute != null)
             {
@@ -159,8 +159,8 @@ namespace Randomize.Net
 
             if (baseLimitAttribute is Attributes.UInt64.LimitAttribute attribute)
             {
-                minValue = attribute.Min;
-                maxValue = attribute.Max;
+                minValue = attribute.MinimumValue;
+                maxValue = attribute.MaximumValue;
             }
             else if (baseLimitAttribute != null)
             {

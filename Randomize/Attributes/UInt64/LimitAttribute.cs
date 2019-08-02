@@ -9,7 +9,7 @@ namespace Randomize.Net.Attributes.UInt64
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class LimitAttribute : BaseLimitAttribute, ILimit<ulong>
     {
-        public ulong Max { get; set; }
-        public ulong Min { get; set; }
+        public ulong MaximumValue { get; set; }
+        public ulong MinimumValue { get; set; }
     }
 }

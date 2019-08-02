@@ -31,13 +31,13 @@ namespace MockCollecton.Tests.AttributeTests
 
         private class IncorrectAttributeData
         {
-            [Randomize.Net.Attributes.Double.Limit(Max = 20, Min = 10)]
+            [Randomize.Net.Attributes.Double.Limit(MaximumValue = 20, MinimumValue = 10)]
             public ulong Number { get; set; }
         }
 
         private class Data
         {
-            [Randomize.Net.Attributes.UInt64.Limit(Max = 20, Min = 10)]
+            [Randomize.Net.Attributes.UInt64.Limit(MaximumValue = 20, MinimumValue = 10)]
             public ulong Number { get; set; }
         }
     }
