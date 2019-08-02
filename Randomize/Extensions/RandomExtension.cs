@@ -7,12 +7,13 @@ namespace Randomize.Net
 {
     public static partial class RandomExtensions
     {
+        private static Random _random;
         public static IEnumerable<T> GenerateCollection<T>(this Random source,int count = 1)
         {
             _random = source;
-            return GenerateCollection<T>(count);
+            return GenerateCollectionInternal<T>(count);
         }
-        private static IEnumerable<T> GenerateCollection<T>(int count = 1)
+        private static IEnumerable<T> GenerateCollectionInternal<T>(int count = 1)
         {
             for(int i = 0; i < count; i++)
             {
@@ -37,6 +38,29 @@ namespace Randomize.Net
                 return instance;
             }
         }
+
+        internal static dynamic GetRandomValues(this Type source, Attributes.BaseLimitAttribute limitAttribute = null)
+        {
+            IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
+            {
+                [typeof(string)] = () => RandomString(),
+                [typeof(sbyte)] = () => RandomSByte(),
+                [typeof(short)] = () => RandomInt16(limitAttribute),
+                [typeof(int)] = () => RandomInt32(limitAttribute),
+                [typeof(long)] = () => RandomInt64(limitAttribute),
+                [typeof(bool)] = () => RandomBoolean(),
+                [typeof(double)] = () => RandomDouble(limitAttribute),
+                [typeof(byte)] = () => RandomByte(),
+                [typeof(char)] = () => RandomChar(),
+                [typeof(ushort)] = () => RandomUInt16(limitAttribute),
+                [typeof(uint)] = () => RandomUInt32(limitAttribute),
+                [typeof(ulong)] = () => RandomUInt64(limitAttribute),
+                [typeof(decimal)] = () => RandomDecimal(),
+                [typeof(float)] = () => RandomFloat(),
+            };
+            return _actionDictionary.ContainsKey(source) ? _actionDictionary[source]() : GetDefault(source);
+        }
+
         private static T GenerateInstance<T>() => Activator.CreateInstance<T>();
 
         private static void AssignProperties(object obj)

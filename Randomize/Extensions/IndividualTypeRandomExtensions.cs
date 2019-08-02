@@ -9,28 +9,8 @@ namespace Randomize.Net
 {
     public static partial class RandomExtensions
     {
-        private static Random _random;
-        private static dynamic GetRandomValues(this Type source, Attributes.BaseLimitAttribute limitAttribute=null)
-        {
-            IDictionary<Type, Func<dynamic>> _actionDictionary = new Dictionary<Type, Func<dynamic>>()
-            {
-                [typeof(string)] = () => RandomString(),
-                [typeof(sbyte)] = () => RandomSByte(),
-                [typeof(short)] = () => RandomInt16(limitAttribute),
-                [typeof(int)] = () => RandomInt32(limitAttribute),
-                [typeof(long)]   = () => RandomInt64(limitAttribute),
-                [typeof(bool)]   = () => RandomBoolean(),
-                [typeof(double)] = () => RandomDouble(limitAttribute),
-                [typeof(byte)]   = () => RandomByte(),
-                [typeof(char)]   = () => RandomChar(),
-                [typeof(ushort)] = () => RandomUInt16(limitAttribute),
-                [typeof(uint)]   = () => RandomUInt32(limitAttribute),
-                [typeof(ulong)]  = () => RandomUInt64(limitAttribute),
-                [typeof(decimal)] = () => RandomDecimal(),
-                [typeof(float)] = () => RandomFloat(),
-            };
-            return _actionDictionary.ContainsKey(source)? _actionDictionary[source]():GetDefault(source);
-        }
+        
+
 
 
         private static object GetDefault(Type type)
