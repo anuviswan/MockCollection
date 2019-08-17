@@ -10,9 +10,6 @@ namespace Randomize.Net
     public static partial class RandomExtensions
     {
         
-
-
-
         private static object GetDefault(Type type)
         {
             // If no Type was supplied, if the Type was a reference type, or if the Type was a System.Void, return null
